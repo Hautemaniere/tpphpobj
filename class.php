@@ -89,10 +89,10 @@ class personnage4{
 
         try {
 
-            $ipserver = "exodialperso.mysql.db";
-            $nomBase = "exodialperso";
-            $loginPrivilege = "exodialperso";
-            $passPrivilege = "Minibn80";
+            $ipserver = "********";
+            $nomBase = "********";
+            $loginPrivilege = "**********";
+            $passPrivilege = "*******";
 
             $GLOBALS["PDO"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
 
