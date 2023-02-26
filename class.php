@@ -9,3 +9,19 @@ class user{
 
 }
 ?>
+
+<?php
+class personnage1{
+    private $pseudo;
+    private $vie;
+
+    public function __construct(){
+        $this -> vie =  100;
+    }
+
+    public function afficheVie(){
+        echo $this -> vie;
+    }
+
+}
+?>
