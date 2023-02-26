@@ -74,3 +74,57 @@ class personnage3{
 
 }
 ?>
+
+<?php
+class personnage4{
+    private $pseudo;
+    private $vie;
+    private $id;
+
+
+
+
+    public function __construct($id)
+    {
+
+        try {
+
+            $ipserver = "exodialperso.mysql.db";
+            $nomBase = "exodialperso";
+            $loginPrivilege = "exodialperso";
+            $passPrivilege = "Minibn80";
+
+            $GLOBALS["PDO"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
+
+
+
+            $requete = "SELECT * FROM personnage WHERE id = $id";
+            $affichePersonnage = $GLOBALS["PDO"]->query($requete);
+
+            if ($affichePersonnage != false) {
+                $row_count = $affichePersonnage->rowCount();
+                if ($row_count > 0) {
+                    $perso = $affichePersonnage->fetch();
+
+                    $this->id = $perso["id"];
+                    $this->pseudo = $perso["pseudo"];
+                    $this->vie = $perso["vie"];
+                }
+            }
+        } catch (Exception $error) 
+        {
+            $error->getMessage();
+            echo "Erreur est : " . $error;
+        }
+    }
+
+
+    public function getInfos(){
+        echo "<p>id : ".$this->id;
+        echo "</p><p>pseudo : ".$this->pseudo;
+        echo "</p><p>vie : ".$this->vie;
+    }
+
+
+}
+?>
